@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="toDoApp">
+<head>
+    <title>ToDo List</title>
+    <script src="Libraries/angular.js"></script>
+    <link href="Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script src="todo.js"></script>
+    <style type="text/css">
+        .add_form {
+            float: left;
+            width: 50%;
+        }
+        .description {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" ng-controller="ToDoCtrl">
+
+        <h3>ToDo List</h3>
+
+        <table class="table">
+            <thead>
+				<tr>
+					<th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Completed</th>
+				</tr>
+                <tr ng-repeat="key in data track by $index">
+                    <th>{{key.name}}</th>
+                    <th><button class="btn btn-info" ng-click="showDescriptions(key)">Details</button></th>
+                    <th>{{key.date}}</th>
+                    <th style={{SetColor(key.completed)}}>{{key.completed}}</th>
+                </tr>
+            </thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="add_form">
+			<h3>Name</h3>
+            <input ng-model="name" />
+			<h3>Description</h3>
+            <input ng-model="descriptions" />
+			<h3>Date</h3>
+            <input ng-model="date" />
+			<h3>Completed</h3>
+            <input type="checkbox" ng-model="completed" /> <br/>
+			<button class="btn btn-success" ng-click="AddToDo()">Add</button>
+        </div>
+        <div class="description">
+            <p class="lead">{{description}}</p>
+        </div>
+    </div>
+</body>
+</html>
