@@ -1,1 +1,1 @@
-toDoList with LocalStorage
+toDoList on AngularJS with LocalStorage
